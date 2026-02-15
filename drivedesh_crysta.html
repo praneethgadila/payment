@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DriveDesh - Toyota Innova Crysta</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #FF9933, #ffffff, #138808);
+}
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 60px auto;
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+.vehicle-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.vehicle-header img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 15px;
+}
+.vehicle-info h1 { color: #FF9933; }
+.form-group { margin-bottom: 20px; }
+label { font-weight: bold; display: block; margin-bottom: 6px; }
+input, select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+.payment-options { display: flex; gap: 20px; }
+.pay-btn {
+    margin-top: 20px;
+    width: 100%;
+    padding: 14px;
+    background: #138808;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="vehicle-header">
+<img src="crysta.jpg" alt="Toyota Innova Crysta">
+<div class="vehicle-info">
+<h1>Toyota Innova Crysta</h1>
+<p><strong>Fuel Type:</strong> Diesel</p>
+<p><strong>Transmission:</strong> Manual / Automatic</p>
+<p><strong>Seating Capacity:</strong> 7</p>
+<p><strong>Mileage:</strong> 15 km/l</p>
+<p><strong>Daily Rent:</strong> ₹5200/day</p>
+<p><strong>Location:</strong> Hyderabad</p>
+</div>
+</div>
+
+<h2>Book Your Ride</h2>
+
+<input type="date" id="pickupDate">
+<input type="time" id="pickupTime">
+
+<div class="payment-options">
+<label><input type="radio" name="payment" value="full"> Full Payment</label>
+<label><input type="radio" name="payment" value="advance"> Advance (30%)</label>
+</div>
+
+<input type="text" id="customerName" placeholder="Enter your name">
+
+<button class="pay-btn" onclick="generateBooking()">Proceed to Pay</button>
+
+<div id="bookingSummary" style="display:none;">
+<p><strong>Name:</strong> <span id="summaryName"></span></p>
+<p><strong>Amount:</strong> ₹<span id="summaryAmount"></span></p>
+<img src="qrcode.jpeg" width="200">
+</div>
+
+</div>
+
+<script>
+function generateBooking(){
+const rent=5200;
+const paymentType=document.querySelector('input[name="payment"]:checked');
+if(!paymentType){alert("Select payment type");return;}
+let amount=paymentType.value==="full"?rent:Math.round(rent*0.3);
+document.getElementById("summaryName").innerText=document.getElementById("customerName").value;
+document.getElementById("summaryAmount").innerText=amount;
+document.getElementById("bookingSummary").style.display="block";
+}
+</script>
+</body>
+</html>
+
+

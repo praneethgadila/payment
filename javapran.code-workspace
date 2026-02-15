@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "C:/javapran"
+		},
+		{
+			"path": "C:/HTML"
+		}
+	],
+	"settings": {
+		"java.debug.settings.onBuildFailureProceed": true,
+		"liveServer.settings.multiRootWorkspaceName": "HTML"
+	}
+}

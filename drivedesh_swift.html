@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DriveDesh - Maruti Swift</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #FF9933, #ffffff, #138808);
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 60px auto;
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.vehicle-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.vehicle-header img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 15px;
+    background: #f5f5f5;
+}
+
+.vehicle-info h1 {
+    margin-top: 0;
+    color: #FF9933;
+}
+
+.booking-section {
+    margin-top: 40px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 6px;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.payment-options {
+    display: flex;
+    gap: 20px;
+}
+
+.pay-btn {
+    margin-top: 20px;
+    width: 100%;
+    padding: 14px;
+    background: #138808;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.pay-btn:hover {
+    background: #0f6f06;
+}
+
+#bookingSummary {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- VEHICLE INFO -->
+<div class="vehicle-header">
+
+<img src="swift.jpg" alt="Maruti Swift">
+
+<div class="vehicle-info">
+<h1>Maruti Swift</h1>
+<p><strong>Fuel Type:</strong> Petrol</p>
+<p><strong>Transmission:</strong> Manual / Automatic</p>
+<p><strong>Seating Capacity:</strong> 5</p>
+<p><strong>Mileage:</strong> 22 km/l</p>
+<p><strong>Daily Rent:</strong> ₹1200/day</p>
+<p><strong>Location:</strong> Hyderabad</p>
+</div>
+
+</div>
+
+<!-- BOOKING SECTION -->
+<div class="booking-section">
+
+<h2>Book Your Ride</h2>
+
+<div class="form-group">
+<label>Select Pickup Date</label>
+<input type="date" id="pickupDate">
+</div>
+
+<div class="form-group">
+<label>Select Pickup Time</label>
+<input type="time" id="pickupTime">
+</div>
+
+<div class="form-group">
+<label>Select Pickup Location</label>
+<select>
+<option>Gachibowli</option>
+<option>Madhapur</option>
+<option>Banjara Hills</option>
+<option>Hitech City</option>
+<option>Secunderabad</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Payment Method</label>
+<div class="payment-options">
+<label>
+<input type="radio" name="payment" value="full"> Full Payment
+</label>
+<label>
+<input type="radio" name="payment" value="advance"> Advance (30%)
+</label>
+</div>
+</div>
+
+<div class="form-group">
+<label>Customer Name</label>
+<input type="text" id="customerName" placeholder="Enter your name">
+</div>
+
+<button class="pay-btn" onclick="generateBooking()">Proceed to Pay</button>
+
+<hr style="margin:40px 0;">
+
+<div id="bookingSummary" style="display:none;">
+<h2>Booking Summary</h2>
+
+<p><strong>Name:</strong> <span id="summaryName"></span></p>
+<p><strong>Date:</strong> <span id="summaryDate"></span></p>
+<p><strong>Time:</strong> <span id="summaryTime"></span></p>
+<p><strong>Payment Type:</strong> <span id="summaryPayment"></span></p>
+<p><strong>Amount to Pay:</strong> ₹<span id="summaryAmount"></span></p>
+
+<h3>Scan QR to Pay (UPI)</h3>
+<img id="upiQR" src="qrcode.jpeg" width="200">
+</div>
+
+</div>
+</div>
+
+<script>
+function generateBooking() {
+
+    const name = document.getElementById("customerName").value;
+    const date = document.getElementById("pickupDate").value;
+    const time = document.getElementById("pickupTime").value;
+    const paymentType = document.querySelector('input[name="payment"]:checked');
+
+    const dailyRent = 1200;
+
+    if (!name || !date || !time || !paymentType) {
+        alert("Please fill all details.");
+        return;
+    }
+
+    let amount;
+    let paymentText;
+
+    if (paymentType.value === "full") {
+        amount = dailyRent;
+        paymentText = "Full Payment";
+    } else {
+        amount = Math.round(dailyRent * 0.3);
+        paymentText = "Advance Payment (30%)";
+    }
+
+    document.getElementById("summaryName").innerText = name;
+    document.getElementById("summaryDate").innerText = date;
+    document.getElementById("summaryTime").innerText = time;
+    document.getElementById("summaryPayment").innerText = paymentText;
+    document.getElementById("summaryAmount").innerText = amount;
+
+    document.getElementById("bookingSummary").style.display = "block";
+}
+</script>
+
+</body>
+</html>
+

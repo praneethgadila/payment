@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timetable</title>
+
+<style>
+table {
+    border-collapse: separate;
+    border-spacing: 3px;
+      border: 2px solid black;
+    width: 95%;
+    text-align: center;
+    font-family: Arial;
+    margin: auto;
+}
+
+th, td {
+    border: 5px solid black;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Section Colors */
+.day1 { background-color: blue; color: white; }
+.day2 { background-color: red; color: white; }
+.day3 { background-color: blue; color: white; }
+.day4 { background-color: red; color: white; }
+.day5 { background-color: blue; color: white; }
+.day6 { background-color: red; color: white; }
+
+/* Subject Colors */
+.glb { color: purple; }
+.mai { color: orange; }
+.cse { color: yellow; }
+.dsa { color: olivedrab; }
+.sports { color: blue; }
+.hobby { color: red; }
+
+
+.lunch { color: black;
+    font-weight: bold; 
+    font-size: 22px;
+    letter-spacing: 2px;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+ }
+
+.library { color: #FFA07A; }
+</style>
+
+</head>
+<body>
+
+
+    <h1 align="center">TIME TABLE </h1>
+
+<table >
+<tr>
+    <th class="day">day</th>
+    
+    <td >8:00 - 9:50</td>
+    <td >10:00 - 11:40</td>
+    <td >11:40 - 12:20</td>
+    <td >12:20 - 2:00</td>
+    <td>2:10-3:45</td>
+</tr>
+
+<tr>
+    <th class="day1">Monday</th>
+    
+    <td class="mai">MAI</td>
+    
+    <td class="glb">GLb</td>
+    
+    <td class="lunch" rowspan="6">LUNCH</td>
+    <td class="cse">CSE</td>
+    <td class="sports">SPORTS</td>
+   
+</tr>
+
+<tr>
+    <th class="day2">Tuesday</th>
+    
+    
+ 
+    
+    <td class="glb">GLb</td>
+     <td class="mai">MAI</td>
+    
+  
+    <td class="cse">CSE</td>
+    <td class="hobby">hobby</td>
+    
+</tr>
+
+<tr>
+    <th class="day3">Wednesday</th>
+    
+    <td class="dsa">DSA</td>
+    
+    <td class="mai">MAI</td>
+    
+  
+    <td class="hobby">Hobby</td>
+    <td class="dsa">DSA</td>
+</tr>
+
+<tr>
+    <th class="day4">Thursday</th>
+    
+  <td class="mai" colspan="2">MAI</td>
+  
+    
+   
+    
+ 
+
+     <td class="glb">GLb</td>
+    <td class="cse">CSE</td>
+</tr>
+
+<tr>
+    <th class="day5">Friday</th>
+    
+   <td class="cse">CSE</td>
+    
+    <td class="dsa">DSA</td>
+    
+    
+   <td class"library">Library</td>
+    <td class="sports">SPORTS</td>
+</tr>
+
+
+<tr>
+    <th class="day6">Saturday</th>
+    
+   
+    
+    <td class="glb" colspan="2">GLb</td>
+     
+
+    
+   
+    <td class="cse">CSE</td>
+    <td class="sports">SPORTS</td>
+</tr>
+
+
+
+</table>
+
+</body>
+</html>
