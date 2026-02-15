@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment Successful - DriveDesh</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: #f4fdf6;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+    }
+
+    .logo img {
+        width: 180px;
+        margin-bottom: 30px;
+    }
+
+    .success-box {
+        text-align: center;
+    }
+
+    .circle {
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        background: #4CAF50;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        perspective: 1000px;
+    }
+
+    .tick {
+        font-size: 70px;
+        color: white;
+        animation: flip 2.5s infinite;
+        transform-style: preserve-3d;
+    }
+
+    @keyframes flip {
+        0% { transform: rotateY(0deg); }
+        50% { transform: rotateY(180deg); }
+        100% { transform: rotateY(360deg); }
+    }
+
+    h1 {
+        color: #2e7d32;
+        margin-top: 20px;
+    }
+
+    p {
+        color: #555;
+        font-size: 16px;
+    }
+
+    .btn {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background: #2e7d32;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        background: #1b5e20;
+    }
+</style>
+</head>
+
+<body>
+
+    <div class="logo">
+        <img src="drivedesh_logo.png.png" alt="DriveDesh Logo">
+    </div>
+
+    <div class="success-box">
+        <div class="circle">
+            <div class="tick">✔</div>
+        </div>
+
+        <h1>Payment Successful!</h1>
+        <p>Your vehicle booking has been confirmed.</p>
+
+        <button class="btn" onclick="goHome()">Go to Home</button>
+    </div>
+
+<script>
+function goHome() {
+    // Replace 'index.html' with your actual home page file or URL
+    window.open('drivedesh1.html', '_blank'); 
+}
+</script>
+
+</body>
+</html>
+
